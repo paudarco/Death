@@ -3,10 +3,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const interviewBlock = document.querySelector('.interview__block');
 
-    function scroll() {
-        window.scrollTo = 250;
-    }
-
     function show() {
         setTimeout(() => {
             interviewBlock.classList.add('show');
@@ -22,7 +18,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
         setTimeout(() => {
             interviewBlock.innerHTML = block;
-            scroll();
             show();
         }, 1000);
     }
@@ -214,7 +209,6 @@ document.addEventListener('DOMContentLoaded', () => {
         setTimeout(loadQuestion4, 3000);
     }
 
-
     function loadQuestion4() {
         const question4 = `<div class="interview__subtitle">
                 <p class="subtitle">
@@ -223,7 +217,7 @@ document.addEventListener('DOMContentLoaded', () => {
             </div>
             <div class="divider"></div>
             
-            <div class="question">
+            <div class="question question4">
                 <h1 class="question__title">Снятся ли Вам умершие люди?</h1>
                 <button class="btn question__answer input_size" value="yes">Да</button>
                 <button class="btn question__answer input_size" value="no">Нет</button>
@@ -276,7 +270,7 @@ document.addEventListener('DOMContentLoaded', () => {
             </div>
             <div class="divider"></div>
             
-            <div class="question">
+            <div class="question question5">
                 <h1 class="question__title">Запись, которую Вы услышите, может шокировать людей с неокрепшей психикой. Вы готовы узнать, что ждет именно Вас?</h1>
                 <button class="btn question__answer input_size" value="yes">Да</button>
                 <button class="btn question__answer input_size" value="no">Затрудняюсь ответить</button>
@@ -355,7 +349,6 @@ document.addEventListener('DOMContentLoaded', () => {
         
     }
 
-
     function loadFinal() {
         let date = new Date(Date.parse(new Date()) + 1000 * 60 * 60 * 24),
               day = date.getDate(),
@@ -417,7 +410,7 @@ document.addEventListener('DOMContentLoaded', () => {
                                 <div class="request__block">
                                     <h3 class="request__text">Имя: ${data.name}</h3>
                                     <h3 class="request__text">Рост: ${data.height}</h3>
-                                    <h3 class="request__text">Вес: ${data.masss}</h3>
+                                    <h3 class="request__text">Вес: ${data.mass}</h3>
                                     <h3 class="request__text">Цвет волос: ${data.hair_color}</h3>
                                     <h3 class="request__text">Цвет кожи: ${data.skin_color}</h3>
                                     <h3 class="request__text">Цвет глаз: ${data.eye_color}</h3>
@@ -454,30 +447,12 @@ document.addEventListener('DOMContentLoaded', () => {
         }, 1100);
     }
 
-
-
     interviewBlock.innerHTML = question2;
 
-    
-
     show();
-
 
     interviewBlock.querySelectorAll('button').forEach(button => {
         button.addEventListener('click', loadQuestion3);
     });
-
-
-
-
-
-
-
-
-
-    
-
-
-
 
 });
