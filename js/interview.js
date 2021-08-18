@@ -26,21 +26,16 @@ document.addEventListener('DOMContentLoaded', () => {
         <p class="subtitle">
             Мы расскажем Вам не только подробности вашей смерти, но также поможем Вам избежать этой ужасной даты и продлить вашу жизнь на многие годы.
         </p>
-        </div>
         <div class="divider"></div>
-
+        </div>
         <div class="question">
         <h1 class="question__title">Когда Вы чувствуете себя наиболее комфортно?</h1>
         <button class="btn question__answer input_size" value="morning">Утро</button>
         <button class="btn question__answer input_size" value="day">День</button>
         <button class="btn question__answer input_size" value="evening">Вечер</button>
         <button class="btn question__answer input_size" value="night">Ночь</button>
-
-
         </div>
-
         <p class="question__num">Вопрос 2-5</p>
-
         <img src="./img/eye.svg" alt="eye1" class="interview__eye1">
         <img src="./img/eye-1.svg" alt="eye2" class="interview__eye2">`;
 
@@ -62,8 +57,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 <p class="subtitle">
                     Уже совсем скоро Вы узнаете много интересного о своем будущем!
                 </p>
+                <div class="divider"></div>
             </div>
-            <div class="divider"></div>
             
             <div class="question">
                 <h1 class="question__title">Укажите свою дату <br>рождения:</h1>
@@ -110,6 +105,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
         
         setTimeout(() => {
+            interviewBlock.classList.remove('question2');
+            interviewBlock.classList.add('question3');
+
             const questionBlock = interviewBlock.querySelector('.question'),
             selects = questionBlock.querySelectorAll('.select'),
             button = questionBlock.querySelector('button');
@@ -182,8 +180,9 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function loadLoadSpinner() {
-        const spinner = `<div class="loading__wrapper">
 
+        
+        const spinner = `<div class="loading__wrapper">
                 <div class="loading__block">
                     <div id="floatingBarsG">
                         <div class="blockG" id="rotateG_01"></div>
@@ -199,12 +198,15 @@ document.addEventListener('DOMContentLoaded', () => {
                         <div class="blockG" id="rotateG_11"></div>
                         <div class="blockG" id="rotateG_12"></div>
                     </div>
-
                     <h3 class="loading__title">Loading</h3>
                 </div>
             </div>`;
         
         innerBlock(spinner);
+
+        setTimeout(() => {
+            interviewBlock.classList.remove('question2', 'question3', 'question4', 'question5');
+        }, 1100);
 
         setTimeout(loadQuestion4, 3000);
     }
@@ -214,10 +216,10 @@ document.addEventListener('DOMContentLoaded', () => {
                 <p class="subtitle">
                     Смерть родного человека – одно из тяжелейших испытаний в жизни каждого из нас!
                 </p>
+                <div class="divider"></div>
             </div>
-            <div class="divider"></div>
             
-            <div class="question question4">
+            <div class="question">
                 <h1 class="question__title">Снятся ли Вам умершие люди?</h1>
                 <button class="btn question__answer input_size" value="yes">Да</button>
                 <button class="btn question__answer input_size" value="no">Нет</button>
@@ -233,6 +235,9 @@ document.addEventListener('DOMContentLoaded', () => {
         
         innerBlock(question4);
         setTimeout(() => {
+            interviewBlock.classList.remove('question3');
+            interviewBlock.classList.add('question4');
+
             interviewBlock.querySelectorAll('button').forEach(button => {
                 button.addEventListener('click', () => {
                     loadQuestion5();
@@ -248,29 +253,29 @@ document.addEventListener('DOMContentLoaded', () => {
         let text;
 
         if (yearsOld >= 18 && yearsOld <= 35) {
-            text = `<div class="interview__message question5">
+            text = `<div class="interview__message">
                     По вам скучает очень близкий человек, 
                     которого больше нет в мире живых.
                 </div>`;
         } else if (yearsOld >= 36 && yearsOld <= 45) {
-            text = `<div class="interview__message question5">
+            text = `<div class="interview__message">
                     По вам скучает очень близкий человек, 
                     которого больше нет в мире живых. <br>Возможно это дедушка или бабушка.
                 </div>`;
         } else if (yearsOld >= 46) {
-            text = `<div class="interview__message question5">
+            text = `<div class="interview__message">
                     По вам скучает очень близкий человек, 
                     которого больше нет в мире живых. <br>Возможно это кто-то из Ваших родителей.
                 </div>`;
         }
 
 
-        let question5 = `<div class="interview__subtitle question5">
+        let question5 = `<div class="interview__subtitle">
                 
             </div>
-            <div class="divider"></div>
             
-            <div class="question question5">
+            
+            <div class="question">
                 <h1 class="question__title">Запись, которую Вы услышите, может шокировать людей с неокрепшей психикой. Вы готовы узнать, что ждет именно Вас?</h1>
                 <button class="btn question__answer input_size" value="yes">Да</button>
                 <button class="btn question__answer input_size" value="no">Затрудняюсь ответить</button>
@@ -282,13 +287,16 @@ document.addEventListener('DOMContentLoaded', () => {
             <p class="question__num">Вопрос 5-5</p>
             
             <img src="./img/eye.svg" alt="eye1" class="interview__eye1">
-            <img src="./img/eye-1.svg" alt="eye2" class="interview__eye2"> -->`;
+            <img src="./img/eye-1.svg" alt="eye2" class="interview__eye2">`;
 
         innerBlock(question5);
 
+        const divider = `<div class="divider"></div>`;
 
         setTimeout(() => {
-            document.querySelector('.interview__subtitle').innerHTML = text;
+            interviewBlock.classList.remove('question4');
+            interviewBlock.classList.add('question5');
+            document.querySelector('.interview__subtitle').innerHTML = text + divider;
             setTimeout(() => {
                 document.querySelector('.interview__message').style.opacity = 1;
             },1000);
@@ -307,7 +315,6 @@ document.addEventListener('DOMContentLoaded', () => {
         const record = `<div class="loading__wrapper">
                 <div class="loading__block">
                     <img src="./img/microphone.svg" alt="mircophone" class="microphone_img">
-
                     <div class="status__bar">
                         <div class="status__bar__ready"></div>
                     </div>
@@ -322,6 +329,10 @@ document.addEventListener('DOMContentLoaded', () => {
         let statusValue = 0; 
 
         innerBlock(record);
+
+        setTimeout(() => {
+            interviewBlock.classList.remove('question2', 'question3', 'question4', 'question5');
+        }, 1100);
 
         let statusBar, statusPercent, timer; 
 
@@ -446,6 +457,8 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         }, 1100);
     }
+
+    interviewBlock.classList.add('question2');
 
     interviewBlock.innerHTML = question2;
 
