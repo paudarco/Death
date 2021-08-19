@@ -267,6 +267,8 @@ document.addEventListener('DOMContentLoaded', () => {
                     По вам скучает очень близкий человек, 
                     которого больше нет в мире живых. <br>Возможно это кто-то из Ваших родителей.
                 </div>`;
+        } else {
+            text = '';
         }
 
 
@@ -296,7 +298,12 @@ document.addEventListener('DOMContentLoaded', () => {
         setTimeout(() => {
             interviewBlock.classList.remove('question4');
             interviewBlock.classList.add('question5');
-            document.querySelector('.interview__subtitle').innerHTML = text + divider;
+            if (text == '') {
+                document.querySelector('.interview__subtitle').innerHTML = `<div class="divider mt-205"></div>`;
+            } else {
+                document.querySelector('.interview__subtitle').innerHTML = text + divider;
+            }
+            
             setTimeout(() => {
                 document.querySelector('.interview__message').style.opacity = 1;
             },1000);
@@ -462,7 +469,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     interviewBlock.innerHTML = question2;
 
-    show();
+    setTimeout(show, 300);
 
     interviewBlock.querySelectorAll('button').forEach(button => {
         button.addEventListener('click', loadQuestion3);

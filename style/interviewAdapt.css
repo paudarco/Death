@@ -28,7 +28,7 @@ main {
     display: flex;
     flex-direction: column;
     align-items: center; 
-    justify-content: space-around;
+    justify-content: space-between;
     position: relative;
     height: 100%;
     transition: 1s;
@@ -104,12 +104,12 @@ main {
 
 .final_block {
     height: 103%;
-    min-height: 660px;
+    min-height: 690px;
 }
 
 .interview__subtitle {
     max-width: 420px;
-    /* height: 224px; */
+    height: 224px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -143,7 +143,6 @@ main {
     max-width: 100%;
     width: 100%;
     /* padding-bottom: 5vh; */
-    height: 224px;
 }
 
 .subtitle {
@@ -159,17 +158,19 @@ main {
 
 .question2 .subtitle {
     max-width: 425px;
+    margin-top: 4.6vh;
     margin-bottom: 3.6vh;
 }
 
 .question3 .subtitle {
-    margin-bottom: 5.3vh;
-    margin-top: 5vh;
+    margin-bottom: 7.5vh;
+    margin-top: 7.5vh;
     max-width: 420px;
 }
 
 .question4 .subtitle {
-    margin-bottom: 4vh;
+    margin-top: 5.8vh;
+    margin-bottom: 5.8vh;
     max-width: 400px;
 }
 
@@ -179,6 +180,10 @@ main {
     height: 0;
     background-color: rgba(255, 255, 255, 0.2);
     border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.mt-205 {
+    margin-top: 21.6vh;
 }
 
 .question {
@@ -265,13 +270,8 @@ main {
     text-align: center;
     letter-spacing: 0.1em;
     color: rgba(255, 255, 255, 0.6);
-    /* margin-bottom: 20px; */
+    margin-bottom: 3.35vh;
     margin-top: 25px;
-}
-
-
-.question5 .question__num {
-    margin-bottom: 4vh;
 }
 
 .interview__eye1, .interview__eye2 {
@@ -393,10 +393,11 @@ main {
 }
 
 .interview__message {
-    /* margin-top: 54px; */
+    margin-top: 5.43vh;
+    margin-bottom: 15px;
     max-width: 480px;
     /* min-height: 164.43px; */
-    height: 22vh;
+    height: 164.43px;
     background: #FFFFFF;
     border-radius: 5px;
     padding: 11px 17px;
@@ -412,8 +413,8 @@ main {
 }
 
 .question5 .interview__message {
-    margin-top: 3vh;
-    margin-bottom: 4.5vh;
+    margin-top: 4.1vh;
+    margin-bottom: 4.1vh;
     font-family: Bad Script;
     padding: 20px;
     min-height: 0;
@@ -481,15 +482,13 @@ main {
     box-sizing: border-box;
     border-radius: 3px;
     max-width: 480px;
-    /* min-height: 286px; */
     padding: 0 50px;
-    /* padding-top: 64px; */
-    /* padding-bottom: 48px; */
     display: flex;
     align-items: center;
     justify-content: center;
     text-transform: lowercase;
-    max-height: 650px;
+    min-height: fit-content;
+    height: 286px;
 }
 
 .final_title {
@@ -580,14 +579,14 @@ main {
     }
 
     .question3 .subtitle {
-        margin-bottom: 6.5vh;
-        margin-top: 5vh;
+        margin-top: 8.5vh;
+        margin-bottom: 7vh;
         max-width: 235px;
     }
 
     .question4 .subtitle {
         margin-bottom: 5.1vh;
-        margin-top: 3.8vh;
+        margin-top: 6.5vh;
         max-width: 235px;
     }
     
@@ -639,7 +638,7 @@ main {
         font-size: 12px;
         line-height: 14px;
         /* margin-top: 36px; */
-        margin-bottom: 5vh;
+        margin-bottom: 8.1vh;
     }
 
     .question5 .question__num {
@@ -698,7 +697,8 @@ main {
     }
 
     .interview__message {
-        margin-top: 24px;
+        height: 84px;
+        margin-top: 4.53vh;
         max-width: 259px;
         min-height: 84px;
         padding: 6px 14px;
@@ -708,14 +708,14 @@ main {
 
     .question5 .interview__message {
         padding: 11px;
-        margin-top: 0px;
-        min-height: 0;
-        height: 62px;
-        margin-top: 3vh;
-    }
+        min-height: fit-content;
+        box-sizing: border-box;
+        margin-bottom: 3vh;
+        margin-top: 4.2vh
+}
 
     .interview__message::after {
-        bottom: -20px;
+        bottom: -18px;
         right: 12px;
         width: 17px;
         height: 17px;
@@ -724,7 +724,7 @@ main {
     }
 
     .question5 .interview__message::after {
-        bottom: -35px;
+        bottom: -25px;
         right: 25px;
         width: 1px;
         height: 10px;
@@ -741,6 +741,8 @@ main {
     }
 
     .interview__final_block {
+        height: 172px;
+        min-height: fit-content;
         max-width: 260px;
         padding: 0 15px;
         padding-top: 13px;
@@ -768,45 +770,57 @@ main {
     
 }
 
-@media (min-height: 300px) {
+@media (min-height: 300px) and (min-width: 501px) {
     .final_block {
         height: 102%;
     }
 }
 
-@media (min-height: 510px) {
+@media (min-height: 510px) and (min-width: 501px) {
     .final_block {
         height: 102.5%;
     }
 }
 
-@media (min-height: 600px) {
+@media (min-height: 600px) and (min-width: 501px) {
     .final_block {
         height: 103%;
     }
 }
 
-@media (min-height: 660px) {
+@media (min-height: 660px) and (min-width: 501px) {
     .final_block {
         height: 103.5%;
     }
 }
 
-@media (min-height: 800px) {
+@media (min-height: 800px) and (min-width: 501px) {
     .final_block {
-        height: 104%;
+        height: 102%;
     }
 }
 
-@media (min-height: 990px) {
+@media (min-height: 990px) and (min-width: 501px) {
     .final_block {
-        height: 104.5%;
+        height: 102%;
     }
 }
 
-@media (min-height: 1300px) {
+@media (min-height: 1300px) and (min-width: 501px) {
     .final_block {
-        height: 105%;
+        height: 101.5%;
+    }
+}
+
+@media (min-height: 500px) and (max-width: 500px) {
+    .final_block {
+        height: 101.5%;
+    }
+}
+
+@media (min-height: 1300px) and (max-width: 500px) {
+    .final_block {
+        height: 101%;
     }
 }
 
