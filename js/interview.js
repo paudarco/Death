@@ -199,8 +199,7 @@ document.addEventListener('DOMContentLoaded', () => {
                         <div class="blockG" id="rotateG_12"></div>
                     </div>
                     <h3 class="loading__title">Loading</h3>
-                </div>
-            </div>`;
+                </div>`;
         
         innerBlock(spinner);
 
@@ -302,11 +301,12 @@ document.addEventListener('DOMContentLoaded', () => {
                 document.querySelector('.interview__subtitle').innerHTML = `<div class="divider mt-205"></div>`;
             } else {
                 document.querySelector('.interview__subtitle').innerHTML = text + divider;
+
+                setTimeout(() => {
+                    document.querySelector('.interview__message').style.opacity = 1;
+                },1000);
             }
             
-            setTimeout(() => {
-                document.querySelector('.interview__message').style.opacity = 1;
-            },1000);
         }, 1100);
 
         setTimeout(() => {
