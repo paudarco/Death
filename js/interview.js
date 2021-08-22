@@ -112,17 +112,27 @@ document.addEventListener('DOMContentLoaded', () => {
             selects = questionBlock.querySelectorAll('.select'),
             button = questionBlock.querySelector('button');
 
+            function hideSelect(select) {
+                select.querySelector('.select_styled').classList.remove('active');
+                select.querySelector('.select_options').classList.remove('active');
+            }
+
+            function showSelect(select) {
+                select.querySelector('.select_styled').classList.add('active');
+                select.querySelector('.select_options').classList.add('active');
+            }
+
+            function hideAll(event) {
+                if (event.target === interviewBlock) {
+                    selects.forEach((select) => {
+                        hideSelect(select);
+                    });
+                }
+            }
+
+            interviewBlock.addEventListener('click', hideAll);
+
             selects.forEach((selectBlock, i, arr) => {
-
-                function hideSelect(select) {
-                    select.querySelector('.select_styled').classList.remove('active');
-                    select.querySelector('.select_options').classList.remove('active');
-                }
-
-                function showSelect(select) {
-                    select.querySelector('.select_styled').classList.add('active');
-                    select.querySelector('.select_options').classList.add('active');
-                }
 
                 selectBlock.querySelector('.select_styled').addEventListener('click', (event) => {
                     // console.log(+document.querySelector('.select_styled').textContent);
@@ -156,6 +166,7 @@ document.addEventListener('DOMContentLoaded', () => {
             button.addEventListener('click', () => {
                 let error = 0;
                 selects.forEach(selectBlock => {
+                    hideSelect(selectBlock);
                     const selectStyled = selectBlock.querySelector('.select_styled');
                     if (selectStyled.textContent == 'День' || selectStyled.textContent == 'Месяц' || selectStyled.textContent == 'Год') {
                         selectStyled.classList.add('required');
@@ -165,6 +176,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
                 if (error == 0) {
                     selects.forEach(selectBlock => {
+                        interviewBlock.removeEventListener('click', hideAll);
+
                         const selectStyled = selectBlock.querySelector('.select_styled');
                         if (selectBlock.classList.contains('day')) {
                             dateOfBirth['day'] = +selectStyled.textContent;
